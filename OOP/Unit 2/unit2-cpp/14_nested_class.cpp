@@ -1,0 +1,33 @@
+// Concept 14: Nested Class
+// Aim: To create and use a nested class.
+
+#include <iostream>
+#include <string>
+#include <utility>
+
+class University {
+public:
+    class Department {
+    private:
+        std::string name;
+
+    public:
+        explicit Department(std::string departmentName)
+            : name(std::move(departmentName)) {}
+
+        void display() const {
+            std::cout << "Department: " << name << '\n';
+        }
+    };
+};
+
+int main() {
+    University::Department department("Artificial Intelligence and Data Science");
+    department.display();
+    return 0;
+}
+
+/*
+Expected Output:
+Department: Artificial Intelligence and Data Science
+*/
